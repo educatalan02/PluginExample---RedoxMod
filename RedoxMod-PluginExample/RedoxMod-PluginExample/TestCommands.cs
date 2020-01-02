@@ -8,15 +8,16 @@ using Redox.API.Player;
 using Redox.Unturned.Player;
 using SDG.Unturned;
 using Steamworks;
+using RedoxMod_PluginExample;
 using UnityEngine;
-using Log = Redox.Unturned.Logger;
 
+using Redox.API.DependencyInjection;
 
 namespace RedoxMod_PluginExample
 {
     public class TestCommands
     {
-        public Redox.Unturned.Logger log;
+        public ILogger Logger = DependencyContainer.Resolve<ILogger>();
         public void NotAdminYet(CommandExecutor executor, string[] args)
         {
             var player = ((IPlayer)executor.User).Object as UnturnedPlayer;
@@ -41,7 +42,7 @@ namespace RedoxMod_PluginExample
                 foreach(string text in arguments)
                 {
                     //Testing logs
-                    log.Log(text);
+                    Logger.Log(text);
                     ChatManager.serverSendMessage(text, Color.white, null, player, EChatMode.SAY, null, true);
                 }
             }

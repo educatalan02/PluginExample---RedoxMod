@@ -40,8 +40,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Redox">
-      <HintPath>..\..\..\Redox\Redox\bin\Debug\Redox.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\Downloads\Redox.dll</HintPath>
     </Reference>
     <Reference Include="Redox.Unturned">
       <HintPath>..\..\..\Redox.Unturned\Redox.Unturned\bin\Debug\Redox.Unturned.dll</HintPath>

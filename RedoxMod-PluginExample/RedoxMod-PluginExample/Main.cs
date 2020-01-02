@@ -14,15 +14,17 @@ namespace RedoxMod_PluginExample
         public override string Author => "ice cold";
         public override string Version => "1.0.0.0";
 
-
+        public Main Instance;
         public TestCommands commands;
+
         //On plugin load
         public override void Load()
         {
+            Instance = this;
             Logger.Log("Example plugin loaded correctly!");
             //Register commands
-            Commands.Register("NotAdminYet", "Giving admin to everyone", Redox.API.Commands.CommandFlags.Player, commands.NotAdminYet);
-            Commands.Register("AnotherCommand", "Testing logs", Redox.API.Commands.CommandFlags.Player, commands.AnotherCommand);
+            Commands.Register("NotAdminYet", "Giving admin to everyone", new string[] {"permission1","permission2" },Redox.API.Commands.CommandFlags.Player, commands.NotAdminYet);
+            Commands.Register("AnotherCommand", "Testing logs", new string[] { "permission1", "permission2" }, Redox.API.Commands.CommandFlags.Player, commands.AnotherCommand);
 
 
 
@@ -32,6 +34,7 @@ namespace RedoxMod_PluginExample
         //On plugin unload
         public override void Unload()
         {
+            Instance = null;
             Logger.Log("Unloaded plugin");
         }
     }
