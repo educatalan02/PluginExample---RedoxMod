@@ -1,2 +1,2 @@
-# PluginExample---RedoxMod
+# PluginExample-RedoxMod
 RedoxMod Plugin Example
